@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>aardvark: /home/drseth/CPTR227/doxygen-cmake-github/src/main.cpp Source File</title>
+<title>sorting: /home/brandon/CPTR227/HW15/sorting/src/main.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">aardvark
-   &#160;<span id="projectnumber">0.3.0</span>
+   <div id="projectname">sorting
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
   </td>
  </tr>
@@ -73,18 +73,112 @@ $(function() {
 <a href="main_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="main_8cpp.html#aa99823a0fc8313c9c32541ce768fb801">   21</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#aa99823a0fc8313c9c32541ce768fb801">add</a>(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b) {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span>(a + b);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="main_8cpp.html#a2c3f6775325c30275d11c6abee2db6a0">   26</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#a2c3f6775325c30275d11c6abee2db6a0">main</a>(<span class="keywordtype">int</span>, <span class="keywordtype">char</span>**) {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Hello, world! Ver 2.1\n&quot;</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classheapsort.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classheapsort.html">heapsort</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classheapsort.html#acbe2ec6bc9baf9be1f6159773f9d7bba">   16</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> alength = 20;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classheapsort.html#aac7c3284b8bf3c55d50657cf39554734">   17</a></span>&#160;        <span class="keywordtype">int</span> a[alength] = {21,37,426,0,1212,49,814,100,61,3,76,30,705,84,1995,98,12,25,7,55};</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classheapsort.html#afd8d09354d155c74f29cfebab3e0ef67">   18</a></span>&#160;        <span class="keywordtype">int</span> n = 20;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classheapsort.html#a8ae505f13b1d3417b1fa6a529fa98c4c">   20</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classheapsort.html#a8ae505f13b1d3417b1fa6a529fa98c4c">left</a>(<span class="keywordtype">int</span> i) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">return</span> 2*i + 1;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classheapsort.html#ac665fa6a96f85625a0915e9a619b2aca">   23</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classheapsort.html#ac665fa6a96f85625a0915e9a619b2aca">right</a>(<span class="keywordtype">int</span> i) {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">return</span> 2*i + 2;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classheapsort.html#a51f1b40a3321ff5195de3e2cb5bfbef7">   26</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classheapsort.html#a51f1b40a3321ff5195de3e2cb5bfbef7">parent</a>(<span class="keywordtype">int</span> i) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">return</span> (i-1)/2;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classheapsort.html#ab9dea515376fc77597b5496215c8aab2">   30</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classheapsort.html#ab9dea515376fc77597b5496215c8aab2">compare</a> (<span class="keywordtype">int</span> x,<span class="keywordtype">int</span> y) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">if</span> (x &lt; y)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x &gt; y)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">else</span> </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">return</span> 0;   </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classheapsort.html#accfe2d227d429f70f9328e100d306f80">   39</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classheapsort.html#accfe2d227d429f70f9328e100d306f80">myswap</a>(<span class="keywordtype">int</span> i,<span class="keywordtype">int</span> p) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordtype">int</span> temp;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            temp = a[i];</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            a[i] = a[p];</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            a[p] = temp;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classheapsort.html#a825ccba522f60351c7eee5f927ac7d5f">   46</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classheapsort.html#a825ccba522f60351c7eee5f927ac7d5f">trickleDown</a>(<span class="keywordtype">int</span> i) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordtype">int</span> j = -1;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordtype">int</span> r = right(i);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">if</span> (r &lt; n &amp;&amp; compare(a[r], a[i]) &lt; 0) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keywordtype">int</span> l = left(i);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    <span class="keywordflow">if</span> (compare(a[l], a[r]) &lt; 0) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        j = l;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                        j = r;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <span class="keywordtype">int</span> l = left(i);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    <span class="keywordflow">if</span> (l &lt; n &amp;&amp; compare(a[l], a[i]) &lt; 0) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                        j = l;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">if</span> (j &gt;= 0) myswap(i, j);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                i = j;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            } <span class="keywordflow">while</span> (i &gt;= 0);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classheapsort.html#abb4ea41b5bee78c91d6f8ffc40b59270">   68</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classheapsort.html#abb4ea41b5bee78c91d6f8ffc40b59270">BinaryHeap</a>() {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            n = alength;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = n/2-1; i &gt;= 0; i--) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                trickleDown(i);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classheapsort.html#afcce5d0788e6ba0177805fe37c6311e2">   75</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classheapsort.html#afcce5d0788e6ba0177805fe37c6311e2">reverse</a>() {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i =0; i &lt; alength/2; i++)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            myswap(i,(alength-i-1));</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classheapsort.html#a430e2440bf3216a1d78e000d38a7d77d">   80</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classheapsort.html#a430e2440bf3216a1d78e000d38a7d77d">sort</a>() {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            BinaryHeap();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">while</span> (n &gt; 1) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                myswap(--n, 0);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                trickleDown(0);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            reverse();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classheapsort.html#a9cc1032303b8a659959c226c515309ce">   89</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classheapsort.html#a9cc1032303b8a659959c226c515309ce">print</a>() {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; alength; i++)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            std::cout &lt;&lt; a[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        std::cout &lt;&lt; endl; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   97</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="classheapsort.html">heapsort</a> h;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;This is before sorting&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    h.<a class="code" href="classheapsort.html#a9cc1032303b8a659959c226c515309ce">print</a>();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    h.<a class="code" href="classheapsort.html#a430e2440bf3216a1d78e000d38a7d77d">sort</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;This is after sorting&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    h.<a class="code" href="classheapsort.html#a9cc1032303b8a659959c226c515309ce">print</a>();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="amain_8cpp_html_a2c3f6775325c30275d11c6abee2db6a0"><div class="ttname"><a href="main_8cpp.html#a2c3f6775325c30275d11c6abee2db6a0">main</a></div><div class="ttdeci">int main(int, char **)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00026">main.cpp:26</a></div></div>
-<div class="ttc" id="amain_8cpp_html_aa99823a0fc8313c9c32541ce768fb801"><div class="ttname"><a href="main_8cpp.html#aa99823a0fc8313c9c32541ce768fb801">add</a></div><div class="ttdeci">int add(int a, int b)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00021">main.cpp:21</a></div></div>
+<div class="ttc" id="aclassheapsort_html_a51f1b40a3321ff5195de3e2cb5bfbef7"><div class="ttname"><a href="classheapsort.html#a51f1b40a3321ff5195de3e2cb5bfbef7">heapsort::parent</a></div><div class="ttdeci">int parent(int i)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00026">main.cpp:26</a></div></div>
+<div class="ttc" id="aclassheapsort_html_a9cc1032303b8a659959c226c515309ce"><div class="ttname"><a href="classheapsort.html#a9cc1032303b8a659959c226c515309ce">heapsort::print</a></div><div class="ttdeci">void print()</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00089">main.cpp:89</a></div></div>
+<div class="ttc" id="aclassheapsort_html_a8ae505f13b1d3417b1fa6a529fa98c4c"><div class="ttname"><a href="classheapsort.html#a8ae505f13b1d3417b1fa6a529fa98c4c">heapsort::left</a></div><div class="ttdeci">int left(int i)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00020">main.cpp:20</a></div></div>
+<div class="ttc" id="aclassheapsort_html_ab9dea515376fc77597b5496215c8aab2"><div class="ttname"><a href="classheapsort.html#ab9dea515376fc77597b5496215c8aab2">heapsort::compare</a></div><div class="ttdeci">int compare(int x, int y)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00030">main.cpp:30</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00097">main.cpp:97</a></div></div>
+<div class="ttc" id="aclassheapsort_html_a825ccba522f60351c7eee5f927ac7d5f"><div class="ttname"><a href="classheapsort.html#a825ccba522f60351c7eee5f927ac7d5f">heapsort::trickleDown</a></div><div class="ttdeci">void trickleDown(int i)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00046">main.cpp:46</a></div></div>
+<div class="ttc" id="aclassheapsort_html"><div class="ttname"><a href="classheapsort.html">heapsort</a></div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00014">main.cpp:14</a></div></div>
+<div class="ttc" id="aclassheapsort_html_ac665fa6a96f85625a0915e9a619b2aca"><div class="ttname"><a href="classheapsort.html#ac665fa6a96f85625a0915e9a619b2aca">heapsort::right</a></div><div class="ttdeci">int right(int i)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00023">main.cpp:23</a></div></div>
+<div class="ttc" id="aclassheapsort_html_afcce5d0788e6ba0177805fe37c6311e2"><div class="ttname"><a href="classheapsort.html#afcce5d0788e6ba0177805fe37c6311e2">heapsort::reverse</a></div><div class="ttdeci">void reverse()</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00075">main.cpp:75</a></div></div>
+<div class="ttc" id="aclassheapsort_html_accfe2d227d429f70f9328e100d306f80"><div class="ttname"><a href="classheapsort.html#accfe2d227d429f70f9328e100d306f80">heapsort::myswap</a></div><div class="ttdeci">void myswap(int i, int p)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00039">main.cpp:39</a></div></div>
+<div class="ttc" id="aclassheapsort_html_abb4ea41b5bee78c91d6f8ffc40b59270"><div class="ttname"><a href="classheapsort.html#abb4ea41b5bee78c91d6f8ffc40b59270">heapsort::BinaryHeap</a></div><div class="ttdeci">void BinaryHeap()</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00068">main.cpp:68</a></div></div>
+<div class="ttc" id="aclassheapsort_html_a430e2440bf3216a1d78e000d38a7d77d"><div class="ttname"><a href="classheapsort.html#a430e2440bf3216a1d78e000d38a7d77d">heapsort::sort</a></div><div class="ttdeci">void sort()</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00080">main.cpp:80</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
